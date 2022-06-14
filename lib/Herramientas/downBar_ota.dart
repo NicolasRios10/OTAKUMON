@@ -50,7 +50,7 @@ required this.inx,
         onTap: (index) {
           switch (index) {
             case 0:
-              Navigator.pushNamed(context, "inicio_ota");
+              Navigator.pushNamed(context, "home_ota");
               break;
             case 1:
               Navigator.pushNamed(context, "agregar_ota");
