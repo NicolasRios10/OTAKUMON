@@ -1,5 +1,4 @@
 import 'package:OTAKUMON/pages/biblioteca_ota.dart';
-import 'package:OTAKUMON/pages/home.dart';
 import 'package:OTAKUMON/pages/imagenes_ota.dart';
 import 'package:flutter/material.dart';
 import 'package:OTAKUMON/pages/agregar_ota.dart';
@@ -30,7 +29,7 @@ class MyApp extends StatelessWidget {
 //        'carrito_ota': (_) => Carrito(),
         'registro_screens': (_) => Registro(),
         'ruta_login_2': (_) => LoginPy(),
-        'home_ota': (_) => Home(),
+        'inicio_ota': (_) => InicioScreen(),
         'agregar_ota': (_) => SubirContenidoScreen(),
         'busqueda_ota': (_) => busqueda_pag(),
         'biblioteca_ota': (_) => biblioteca(),
