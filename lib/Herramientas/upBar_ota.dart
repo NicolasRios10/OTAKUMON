@@ -12,13 +12,15 @@ class upBar extends  StatelessWidget with PreferredSizeWidget{
       actions: [
         IconButton(icon: Icon(Icons.add_shopping_cart),
             onPressed: () {
-              Navigator.pushNamed(context, "imagenes_ota");
+              Navigator.pushNamed(context, "carrito_ota");
               },
             padding: EdgeInsets.symmetric(horizontal: 10),
         ),
         IconButton(
             icon: Icon(Icons.login),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, "ruta_login_2");
+            },
             padding: EdgeInsets.symmetric(horizontal: 20),
           ),
       ],

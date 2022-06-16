@@ -1,13 +1,13 @@
 import 'dart:html';
 import 'dart:js';
+import 'package:OTAKUMON/models/publicacion.dart';
+import 'package:OTAKUMON/providers/publicacion_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:OTAKUMON/Herramientas/upBar_ota.dart';
-
+import 'package:provider/provider.dart';
 import '../Herramientas/downBar_ota.dart';
-//import 'package:OTAKUMON/pages/pantalladeprueba.dart';
-//import 'package:OTAKUMON/pages/pantalladeprueba2.dart';
 
 class SubirContenidoScreen extends StatefulWidget {
   @override
@@ -15,39 +15,32 @@ class SubirContenidoScreen extends StatefulWidget {
 }
 
 class _SubirContenidoScreen extends State<SubirContenidoScreen> {
-  final _formKey = GlobalKey<FormState>();
-// --- RUTAS ---
-  // PARA RUTAS (COPIAR Y PEGAR ANTES DE "@override" DESDE AQUI ...
-  // en _selectedIndex coloca un numero entero (del 0 al 3) para seleccionar el icono
-int _selectedIndex = 1;
+  int _selectedIndex = 1;
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
   }
 
-  // ... HASTA AQUI)
-// --- RUTAS ---
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
+    final publicacionProvider = Provider.of<PublicacionProvider>(context);
+    final txtNombre = TextEditingController();
     final txtContenido = TextEditingController();
-    // throw UnimplementedError();
     return Scaffold(
       appBar: upBar(),
       body: Container(
         child: Column(
           children: [
-            // TITULO DE LA APLICACION
             Container(
-                // aplica un espaciado a su contenido (orden: izquierda - arriba - derecha - abajo)
                 padding: const EdgeInsets.fromLTRB(0, 25, 0, 0),
                 child: Center(
                     child: Text('Nueva publicacion',
                         style: TextStyle(
-                            // color de texto en formato RGBA
                             color: Color.fromARGB(255, 25, 77, 145),
                             fontWeight: FontWeight.bold,
-                            // tamaño de texto
                             fontSize: 30)))),
 
             // FORMULARIO PARA DESCRIBIR CONTENIDO
@@ -61,19 +54,41 @@ int _selectedIndex = 1;
                         autocorrect: false,
                         keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
-                            hintText:
-                                'Espacio para que el usuario pueda escribir...',
+                            hintText: 'Nombre del usuario',
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(15),
                             ),
-                            // al momento de hacer clic en el cuadro de texto
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                   color: Color.fromARGB(255, 25, 77, 145),
                                   width: 2),
                               borderRadius: BorderRadius.circular(15),
                             )),
-
+                        maxLines: 1,
+                        controller: txtNombre,
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'Ingrese su nombre';
+                          }
+                        },
+                        enableInteractiveSelection: true,
+                      ),
+                      Padding(padding: EdgeInsets.fromLTRB(0, 30, 0, 0)),
+                      TextFormField(
+                        autocorrect: false,
+                        keyboardType: TextInputType.emailAddress,
+                        decoration: InputDecoration(
+                            hintText:
+                                'Espacio para que el usuario pueda escribir...',
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: Color.fromARGB(255, 25, 77, 145),
+                                  width: 2),
+                              borderRadius: BorderRadius.circular(15),
+                            )),
                         maxLines: 6,
                         controller: txtContenido,
                         validator: (value) {
@@ -81,8 +96,6 @@ int _selectedIndex = 1;
                             return 'Ingrese una descripcion para publicar';
                           }
                         },
-
-                        // permite seleccionar texto
                         enableInteractiveSelection: true,
                       ),
                       Container(
@@ -90,11 +103,8 @@ int _selectedIndex = 1;
                         alignment: Alignment.centerLeft,
                         child: ElevatedButton(
                           child: const Text('Adjuntar archivos'),
-                          // COLORES:
                           style: TextButton.styleFrom(
-                            // COLOR DEL TEXTO DEL BOTON
                             primary: Color.fromARGB(255, 255, 255, 255),
-                            // COLOR DE FONDO DEL BOTON
                             backgroundColor: Color.fromARGB(255, 25, 77, 145),
                           ),
                           // ACCION DESCONOCIDA (el boton no hace nada)
@@ -113,7 +123,7 @@ int _selectedIndex = 1;
                                     backgroundColor:
                                         Color.fromARGB(255, 25, 77, 145)),
                                 onPressed: () {
-                                  // LINEA DE CODIGO PARA IR HACIA ATRAS (IGUAL QUE EL BOTON ATRAS DE LA ESQUINA SUPERIOR IZQUIERDA)
+                                  // LINEA DE CODIGO PARA IR HACIA ATRAS
                                   Navigator.pop(context);
                                 }),
                             // ESPACIADO PARA ALEJAR EL SIGUIENTE ELEMENTO DE FORMA HORIZONTAL LO MAS LEJOS POSIBLE
@@ -125,7 +135,23 @@ int _selectedIndex = 1;
                                     primary: Color.fromARGB(255, 255, 255, 255),
                                     backgroundColor:
                                         Color.fromARGB(255, 25, 77, 145)),
-                                onPressed: () {}),
+                                onPressed: () {
+                                  if (_formKey.currentState!.validate()) {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                        const SnackBar(
+                                            content:
+                                                Text('Espere un momento...')));
+                                    var publicacion = Publicacion(
+                                        id: '',
+                                        publicacionId: 0,
+                                        descripcion: txtContenido.text,
+                                        usuario123: txtNombre.text);
+                                    publicacionProvider
+                                        .savePublicacion(publicacion);
+                                    Navigator.pushReplacementNamed(
+                                        context, 'inicio_ota');
+                                  }
+                                }),
                           ],
                         ),
                       )
@@ -135,11 +161,8 @@ int _selectedIndex = 1;
           ],
         ),
       ),
-// --- RUTAS ---
       // AQUI ESTA LA BARRA DE ICONOS INFERIORES (copiar y pegar desde aqui...
       bottomNavigationBar: downBar(inx: _selectedIndex),
-      // HASTA AQUI ...
-// --- RUTAS ---
     );
   }
 }

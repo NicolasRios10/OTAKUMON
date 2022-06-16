@@ -6,8 +6,10 @@ import 'package:OTAKUMON/pages/busqueda_ota.dart';
 import 'package:OTAKUMON/pages/inicio_ota.dart';
 import 'package:OTAKUMON/pages/login_py.dart';
 import 'package:OTAKUMON/pages/registro_screens.dart';
+import 'package:OTAKUMON/providers/publicacion_provider.dart';
+import 'package:provider/provider.dart';
 
-//import 'pages/carrito_ota.dart';
+import 'pages/carrito_ota.dart';
 
 // import 'package:OTAKUMON/app.dart';
 
@@ -21,21 +23,27 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'OTAKUMON',
-      initialRoute: 'ruta_login_2',
-      routes: {
-//        'carrito_ota': (_) => Carrito(),
-        'registro_screens': (_) => Registro(),
-        'ruta_login_2': (_) => LoginPy(),
-        'inicio_ota': (_) => InicioScreen(),
-        'agregar_ota': (_) => SubirContenidoScreen(),
-        'busqueda_ota': (_) => busqueda_pag(),
-        'biblioteca_ota': (_) => biblioteca(),
-        'imagenes_ota': (_) => SplashScreen(),
-      },
-    );
+    return MultiProvider(
+        providers: [
+          ChangeNotifierProvider(
+              create: (_) => PublicacionProvider(), lazy: false),
+          // ...
+        ],
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'OTAKUMON',
+          initialRoute: 'ruta_login_2',
+          routes: {
+             'carrito_ota': (_) => Carrito(),
+            'registro_screens': (_) => Registro(),
+            'ruta_login_2': (_) => LoginPy(),
+            'inicio_ota': (_) => InicioScreen(),
+            'agregar_ota': (_) => SubirContenidoScreen(),
+            'busqueda_ota': (_) => busqueda_pag(),
+            'biblioteca_ota': (_) => biblioteca(),
+            'imagenes_ota': (_) => SplashScreen(),
+          },
+        ));
   }
 }
 //ruta_subir_contenido
