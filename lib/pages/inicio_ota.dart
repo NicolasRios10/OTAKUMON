@@ -2,7 +2,7 @@ import 'dart:html';
 import 'dart:js';
 import 'package:OTAKUMON/models/publicacion.dart';
 import 'package:OTAKUMON/models/publicacion_response.dart';
-import 'package:OTAKUMON/producto_provider.dart';
+import 'package:OTAKUMON/providers/producto_provider.dart';
 import 'package:OTAKUMON/providers/publicacion_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';

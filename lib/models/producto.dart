@@ -1,22 +1,33 @@
 import 'dart:convert';
 
 class Producto {
+    Producto({
+        required this.id,
+        required this.productoId,
+        required this.descripcion,
+        required this.precio,
+    });
 
-  int productoID;
-  String descripcion;
-  String precio;
+    String id;
+    int productoId;
+    String descripcion;
+    int precio;
 
-  Producto({
-    required this.productoID,
-    required this.descripcion,
-    required this.precio
-  });
+    factory Producto.fromJson(String str) => Producto.fromMap(json.decode(str));
 
-  factory Producto.fromMap(Map<String, dynamic> json) => Producto(
-    productoID : json ["productoID"],
-    descripcion : json ["descripcion"],
-    precio : json ["precio"]
-  );
+    String toJson() => json.encode(toMap());
 
-  factory Producto.fromJson(String str) => Producto.fromMap(json.decode(str));
+    factory Producto.fromMap(Map<String, dynamic> json) => Producto(
+        id: json["_id"],
+        productoId: json["productoID"],
+        descripcion: json["descripcion"],
+        precio: json["precio"],
+    );
+
+    Map<String, dynamic> toMap() => {
+        "_id": id,
+        "productoID": productoId,
+        "descripcion": descripcion,
+        "precio": precio,
+    };
 }

@@ -10,6 +10,7 @@ import 'package:OTAKUMON/providers/publicacion_provider.dart';
 import 'package:provider/provider.dart';
 
 import 'pages/carrito_ota.dart';
+import 'providers/producto_provider.dart';
 
 // import 'package:OTAKUMON/app.dart';
 
@@ -25,8 +26,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
         providers: [
-          ChangeNotifierProvider(
-              create: (_) => PublicacionProvider(), lazy: false),
+          ChangeNotifierProvider(create: (_) => PublicacionProvider(), lazy: false),
+          ChangeNotifierProvider(create: (_) => ProductoProvider(), lazy: false),
           // ...
         ],
         child: MaterialApp(
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
           title: 'OTAKUMON',
           initialRoute: 'ruta_login_2',
           routes: {
-             'carrito_ota': (_) => Carrito(),
+            'carrito_ota': (_) => Carrito(),
             'registro_screens': (_) => Registro(),
             'ruta_login_2': (_) => LoginPy(),
             'inicio_ota': (_) => InicioScreen(),

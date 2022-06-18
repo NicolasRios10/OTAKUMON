@@ -1,12 +1,13 @@
 //import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:OTAKUMON/models/producto_response.dart';
-import 'models/producto.dart';
+import '../models/producto.dart';
 import 'package:http/http.dart' as http;
 
+  
 class ProductoProvider extends ChangeNotifier{
 
-String _baseUrl = 'localhost:9000';
+String _baseUrl = '192.168.3.63:9000';
 
 List<Producto> listaProductos = [];
 

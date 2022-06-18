@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:OTAKUMON/producto_provider.dart';
 import 'package:provider/provider.dart';
 import '../Herramientas/upBar_ota.dart';
 import '../models/producto.dart';
+import '../providers/producto_provider.dart';
 
 class Carrito extends StatefulWidget {
 //
 @override
 createState() => _Carrito();
-
 }
 
 class _Carrito extends State<Carrito> {
@@ -19,36 +18,25 @@ class _Carrito extends State<Carrito> {
     final productoProvider = Provider.of<ProductoProvider>(context);
     final List<Producto> listaProductos = productoProvider.listaProductos;
 
-    
-    // TODO: implement build
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => ProductoProvider(), lazy: false,)
-      ],
-      child:Car(), 
-      
+    return Scaffold(
+      appBar: upBar(),
+      body: Center(
+        child: ListView.builder(
+          itemCount: listaProductos.length,
+          itemBuilder:(context, index){
+            return ListTile(
+              title: Text(listaProductos[index].descripcion),
+              subtitle: Text(listaProductos[index].precio.toString()),
+              leading: Icon(Icons.card_giftcard),
+            );
+          }
+          ),
+      ),
     );
   }
-  
 }
 
-class Car extends  StatelessWidget {
 
-  @override
-  Widget build(BuildContext context) {
-    
-    final productoProvider = Provider.of<ProductoProvider>(context);
-    final List<Producto> listaProductos = productoProvider.listaProductos;
-
-    return MaterialApp(
-      home:Scaffold(
-        appBar: upBar(),
-      )
-    );
-  }  
-
-
-}
 /*
 
 Scaffold(
