@@ -26,7 +26,9 @@ required this.inx,
 
           BottomNavigationBarItem(icon: Icon(Icons.search_sharp), label: 'Buscar'),
 
-          BottomNavigationBarItem(icon: Icon(Icons.cases_rounded), label: 'Biblioteca')
+          BottomNavigationBarItem(icon: Icon(Icons.cases_rounded), label: 'Biblioteca'),
+
+          BottomNavigationBarItem(icon: Icon(Icons.comment), label: 'comentarios'),
         ],
 
 
@@ -61,6 +63,10 @@ required this.inx,
             // FALTA PANTALLA
             case 3:
               Navigator.pushNamed(context, "biblioteca_ota");
+              break;
+            // FALTA PANTALLA
+            case 4:
+              Navigator.pushNamed(context, "coment_ota");
           }
         },
 

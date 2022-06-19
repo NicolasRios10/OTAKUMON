@@ -1,4 +1,5 @@
 import 'package:OTAKUMON/pages/biblioteca_ota.dart';
+import 'package:OTAKUMON/pages/comentarios_ota.dart';
 import 'package:OTAKUMON/pages/imagenes_ota.dart';
 import 'package:flutter/material.dart';
 import 'package:OTAKUMON/pages/agregar_ota.dart';
@@ -43,6 +44,7 @@ class MyApp extends StatelessWidget {
             'busqueda_ota': (_) => busqueda_pag(),
             'biblioteca_ota': (_) => biblioteca(),
             'imagenes_ota': (_) => SplashScreen(),
+            'coment_ota': (_) => ComentScren(),
           },
         ));
   }

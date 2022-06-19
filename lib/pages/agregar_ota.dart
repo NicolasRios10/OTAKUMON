@@ -50,10 +50,30 @@ class _SubirContenidoScreen extends State<SubirContenidoScreen> {
                   key: _formKey,
                   child: Column(
                     children: <Widget>[
-                      TextFormField(
-                        autocorrect: false,
-                        keyboardType: TextInputType.emailAddress,
-                        decoration: InputDecoration(
+                      Container(
+                        decoration: BoxDecoration(
+                            border:
+                                Border.all(color: Color.fromRGBO(0, 0, 0, 0)),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(15.0)),
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Color.fromARGB(141, 45, 64, 88),
+                                  offset: const Offset(4.0, 4.0),
+                                  blurRadius: 5.0,
+                                  spreadRadius: 1.0),
+                              BoxShadow(
+                                color: Colors.white,
+                                offset: const Offset(0.0, 0.0),
+                                blurRadius: 10.0,
+                                spreadRadius: 2.0,
+                              )
+                            ]),
+                        child: TextFormField(
+                          autocorrect: false,
+                          keyboardType: TextInputType.emailAddress,
+                          decoration: InputDecoration(
                             hintText: 'Nombre del usuario',
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(15),
@@ -63,95 +83,163 @@ class _SubirContenidoScreen extends State<SubirContenidoScreen> {
                                   color: Color.fromARGB(255, 25, 77, 145),
                                   width: 2),
                               borderRadius: BorderRadius.circular(15),
-                            )),
-                        maxLines: 1,
-                        controller: txtNombre,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Ingrese su nombre';
-                          }
-                        },
-                        enableInteractiveSelection: true,
-                      ),
-                      Padding(padding: EdgeInsets.fromLTRB(0, 30, 0, 0)),
-                      TextFormField(
-                        autocorrect: false,
-                        keyboardType: TextInputType.emailAddress,
-                        decoration: InputDecoration(
-                            hintText:
-                                'Espacio para que el usuario pueda escribir...',
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15),
                             ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                  color: Color.fromARGB(255, 25, 77, 145),
-                                  width: 2),
-                              borderRadius: BorderRadius.circular(15),
-                            )),
-                        maxLines: 6,
-                        controller: txtContenido,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Ingrese una descripcion para publicar';
-                          }
-                        },
-                        enableInteractiveSelection: true,
-                      ),
-                      Container(
-                        padding: const EdgeInsets.fromLTRB(0, 30, 0, 20),
-                        alignment: Alignment.centerLeft,
-                        child: ElevatedButton(
-                          child: const Text('Adjuntar archivos'),
-                          style: TextButton.styleFrom(
-                            primary: Color.fromARGB(255, 255, 255, 255),
-                            backgroundColor: Color.fromARGB(255, 25, 77, 145),
                           ),
-                          // ACCION DESCONOCIDA (el boton no hace nada)
-                          onPressed: () {},
+                          maxLines: 1,
+                          controller: txtNombre,
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Ingrese su nombre';
+                            }
+                          },
+                          enableInteractiveSelection: true,
                         ),
                       ),
+
+                      Padding(padding: EdgeInsets.fromLTRB(0, 30, 0, 0)),
                       Container(
-                        padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                        decoration: BoxDecoration(
+                            border:
+                                Border.all(color: Color.fromRGBO(0, 0, 0, 0)),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(15.0)),
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Color.fromARGB(141, 45, 64, 88),
+                                  offset: const Offset(4.0, 4.0),
+                                  blurRadius: 5.0,
+                                  spreadRadius: 1.0),
+                              BoxShadow(
+                                color: Colors.white,
+                                offset: const Offset(0.0, 0.0),
+                                blurRadius: 10.0,
+                                spreadRadius: 2.0,
+                              )
+                            ]),
+                        child: TextFormField(
+                          autocorrect: false,
+                          keyboardType: TextInputType.emailAddress,
+                          decoration: InputDecoration(
+                              hintText:
+                                  'Espacio para que el usuario pueda escribir...',
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Color.fromARGB(255, 25, 77, 145),
+                                    width: 2),
+                                borderRadius: BorderRadius.circular(15),
+                              )),
+                          maxLines: 6,
+                          controller: txtContenido,
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Ingrese una descripcion para publicar';
+                            }
+                          },
+                          enableInteractiveSelection: true,
+                        ),
+                      ),
+                      // Container(
+                      //   padding: const EdgeInsets.fromLTRB(0, 30, 0, 20),
+                      //   alignment: Alignment.centerLeft,
+                      //   child: ElevatedButton(
+                      //     child: const Text('Adjuntar archivos'),
+                      //     style: TextButton.styleFrom(
+                      //       primary: Color.fromARGB(255, 255, 255, 255),
+                      //       backgroundColor: Color.fromARGB(255, 25, 77, 145),
+                      //     ),
+                      //     // ACCION DESCONOCIDA (el boton no hace nada)
+                      //     onPressed: () {},
+                      //   ),
+                      // ),
+                      Container(
+                        padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
                         child: Row(
                           children: [
                             // BOTON CANCELAR
-                            ElevatedButton(
-                                child: const Text('Cancelar'),
-                                style: TextButton.styleFrom(
-                                    primary: Color.fromARGB(255, 255, 255, 255),
-                                    backgroundColor:
-                                        Color.fromARGB(255, 25, 77, 145)),
-                                onPressed: () {
-                                  // LINEA DE CODIGO PARA IR HACIA ATRAS
-                                  Navigator.pop(context);
-                                }),
+                            Container(
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                      color: Color.fromARGB(255, 25, 77, 145)),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(5.0)),
+                                  color: Color.fromARGB(255, 255, 255, 255),
+                                  boxShadow: [
+                                    BoxShadow(
+                                        color: Color.fromARGB(141, 45, 64, 88),
+                                        offset: const Offset(4.0, 4.0),
+                                        blurRadius: 5.0,
+                                        spreadRadius: 1.0),
+                                    BoxShadow(
+                                      color: Colors.white,
+                                      offset: const Offset(0.0, 0.0),
+                                      blurRadius: 10.0,
+                                      spreadRadius: 2.0,
+                                    )
+                                  ]),
+                              child: ElevatedButton(
+                                  child: const Text('Cancelar'),
+                                  style: TextButton.styleFrom(
+                                      primary:
+                                          Color.fromARGB(255, 255, 255, 255),
+                                      backgroundColor:
+                                          Color.fromARGB(255, 25, 77, 145)),
+                                  onPressed: () {
+                                    // LINEA DE CODIGO PARA IR HACIA ATRAS
+                                    Navigator.pop(context);
+                                  }),
+                            ),
                             // ESPACIADO PARA ALEJAR EL SIGUIENTE ELEMENTO DE FORMA HORIZONTAL LO MAS LEJOS POSIBLE
                             Spacer(),
                             // BOTON PUBLICAR
-                            ElevatedButton(
-                                child: const Text('Publicar'),
-                                style: TextButton.styleFrom(
-                                    primary: Color.fromARGB(255, 255, 255, 255),
-                                    backgroundColor:
-                                        Color.fromARGB(255, 25, 77, 145)),
-                                onPressed: () {
-                                  if (_formKey.currentState!.validate()) {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                        const SnackBar(
-                                            content:
-                                                Text('Espere un momento...')));
-                                    var publicacion = Publicacion(
-                                        id: '',
-                                        publicacionId: 0,
-                                        descripcion: txtContenido.text,
-                                        usuario123: txtNombre.text);
-                                    publicacionProvider
-                                        .savePublicacion(publicacion);
-                                    Navigator.pushReplacementNamed(
-                                        context, 'inicio_ota');
-                                  }
-                                }),
+                            Container(
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                      color: Color.fromARGB(255, 25, 77, 145)),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(5.0)),
+                                  color: Color.fromARGB(255, 255, 255, 255),
+                                  boxShadow: [
+                                    BoxShadow(
+                                        color: Color.fromARGB(141, 45, 64, 88),
+                                        offset: const Offset(4.0, 4.0),
+                                        blurRadius: 5.0,
+                                        spreadRadius: 1.0),
+                                    BoxShadow(
+                                      color: Colors.white,
+                                      offset: const Offset(0.0, 0.0),
+                                      blurRadius: 10.0,
+                                      spreadRadius: 2.0,
+                                    )
+                                  ]),
+                              child: ElevatedButton(
+                                  child: const Text('Publicar'),
+                                  style: TextButton.styleFrom(
+                                      primary:
+                                          Color.fromARGB(255, 255, 255, 255),
+                                      backgroundColor:
+                                          Color.fromARGB(255, 25, 77, 145)),
+                                  onPressed: () {
+                                    if (_formKey.currentState!.validate()) {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(const SnackBar(
+                                              content: Text(
+                                                  'Espere un momento...')));
+                                      var publicacion = Publicacion(
+                                          id: '',
+                                          publicacionId: 0,
+                                          descripcion: txtContenido.text,
+                                          usuario123: txtNombre.text);
+                                      publicacionProvider
+                                          .savePublicacion(publicacion);
+                                      Navigator.pushReplacementNamed(
+                                          context, 'inicio_ota');
+                                    }
+                                  }),
+                            ),
                           ],
                         ),
                       )
