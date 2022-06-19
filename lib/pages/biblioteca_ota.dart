@@ -1,6 +1,8 @@
+import 'package:OTAKUMON/pages/registro_screens.dart';
 import 'package:flutter/material.dart';
 import 'package:OTAKUMON/Herramientas/upBar_ota.dart';
 import '../Herramientas/downBar_ota.dart';
+import '../Other/config.dart';
 
 
 class biblioteca extends StatefulWidget {
@@ -19,21 +21,44 @@ class _biblioteca extends State<biblioteca> {
     });
   }
 
+
+
+  final Config config = configPrin;
   // ... HASTA AQUI)
 // --- RUTAS ---
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: upBar(),
-      body: Center(
-        child: Text('esta es la segunda pantalla de prueba de biblioteca'),
+      body: Container(
+        child: ListView(
+          children: <widget>[
+            ConfigUserProfile(config),
+            ConfigGen(config),
+          ],
+        ),
       ),
-      // --- RUTAS ---
-      // AQUI ESTA LA BARRA DE ICONOS INFERIORES (copiar y pegar desde aqui...
       bottomNavigationBar: downBar(inx: _selectedIndex,),
-      // HASTA AQUI ...
-// --- RUTAS ---
-    );
+    ); 
   }
 }
+
+
+class ConfigUserProfile extends StatefulWidget {
+  @override
+  createState() => _ConfigUserProfile();
+}
+class _ConfigUserProfile extends State<ConfigUserProfile>{
+
+final Config config;
+
+condi
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
+
