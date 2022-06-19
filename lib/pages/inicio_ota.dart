@@ -2,7 +2,6 @@ import 'dart:html';
 import 'dart:js';
 // quinto intento
 // https://docs.flutter.dev/development/ui/layout
-// https://api.flutter.dev/flutter/material/BottomNavigationBar-class.html
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
@@ -16,7 +15,23 @@ class PhotoItem {
   PhotoItem(this.image, this.name);
 }
 
-class RouteOne extends StatelessWidget {
+class RouteOne extends StatefulWidget {
+  @override
+  createState() => _RouteOne();
+}
+
+
+class _RouteOne extends State<RouteOne> {
+  final _formKey = GlobalKey<FormState>();
+
+
+  int _selectedIndex = 0;
+    void _onItemTapped(int index) {
+      setState(() {
+        _selectedIndex = index;
+      });
+    }
+
   final List<PhotoItem> _items = [
     PhotoItem(
         "https://m.media-amazon.com/images/I/81sqMtBYOHS._AC_SL1500_.jpg",
@@ -65,12 +80,12 @@ class RouteOne extends StatelessWidget {
        "meliodas"),
   ];
 
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Pagina Principal'),
-      ),
+      appBar: upBar(),
       body: GridView.builder(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisSpacing: 20,
@@ -101,6 +116,7 @@ class RouteOne extends StatelessWidget {
           );
         },
       ),
+      bottomNavigationBar: downBar(inx: _selectedIndex),
     );
   }
 }
