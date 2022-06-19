@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
             'carrito_ota': (_) => Carrito(),
             'registro_screens': (_) => Registro(),
             'ruta_login_2': (_) => LoginPy(),
-            'inicio_ota': (_) => InicioScreen(),
+            'inicio_ota': (_) => RouteOne(),
             'agregar_ota': (_) => SubirContenidoScreen(),
             'busqueda_ota': (_) => busqueda_pag(),
             'biblioteca_ota': (_) => biblioteca(),
