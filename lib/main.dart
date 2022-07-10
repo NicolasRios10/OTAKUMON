@@ -1,17 +1,26 @@
 import 'package:OTAKUMON/pages/biblioteca_ota.dart';
-import 'package:OTAKUMON/pages/comentarios_ota.dart';
+import 'package:OTAKUMON/pages/coment_ota.dart';
 import 'package:OTAKUMON/pages/imagenes_ota.dart';
+import 'package:OTAKUMON/pages/inicio2_ota.dart';
 import 'package:flutter/material.dart';
 import 'package:OTAKUMON/pages/agregar_ota.dart';
 import 'package:OTAKUMON/pages/busqueda_ota.dart';
 import 'package:OTAKUMON/pages/inicio_ota.dart';
 import 'package:OTAKUMON/pages/login_py.dart';
 import 'package:OTAKUMON/pages/registro_screens.dart';
+import 'package:OTAKUMON/pages/inicio2_ota.dart';
 import 'package:OTAKUMON/providers/publicacion_provider.dart';
+import 'package:OTAKUMON/providers/inicioproducto_provider.dart';
 import 'package:provider/provider.dart';
 
 import 'pages/carrito_ota.dart';
 import 'providers/producto_provider.dart';
+
+// LISTA
+// AGREGAR
+// EDITAR
+// BUSCAR
+// REPORTE
 
 // import 'package:OTAKUMON/app.dart';
 
@@ -27,9 +36,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
         providers: [
-          ChangeNotifierProvider(create: (_) => PublicacionProvider(), lazy: false),
-          ChangeNotifierProvider(create: (_) => ProductoProvider(), lazy: false),
-          // ...
+          ChangeNotifierProvider(
+              create: (_) => PublicacionProvider(), lazy: false),
+          ChangeNotifierProvider(
+              create: (_) => ProductoProvider(), lazy: false),
+          ChangeNotifierProvider(
+              create: (_) => InicioproductoProvider(), lazy: false),
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
@@ -44,29 +56,10 @@ class MyApp extends StatelessWidget {
             'busqueda_ota': (_) => busqueda_pag(),
             'biblioteca_ota': (_) => biblioteca(),
             'imagenes_ota': (_) => SplashScreen(),
-            'coment_ota': (_) => ComentScren(),
+            // CAMBIO
+            'comment_ota': (_) => ComentScren(),
+            'inicio2_ota': (_) => InicioProductoScreen(),
           },
         ));
   }
 }
-//ruta_subir_contenido
-//SubirContenidoScreen
-
-
-
-
-// class Myapp extends StatelessWidget {
-//   const Myapp({Key? key}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'titulo principal',
-//       home: Scaffold(
-//         appBar: AppBar(
-//           title: Text('titulo principal'),
-//         ),
-//       ),
-//     );
-//   }
-// }

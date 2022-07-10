@@ -158,7 +158,7 @@ class _LoginPy extends State<LoginPy> {
                                 style: TextStyle(color: Colors.blue),
                               ),
                               onPressed: () {
-                                Navigator.pushNamed(context, 'inicio_ota');
+                                Navigator.pushNamed(context, 'inicio2_ota');
                               },
                             ),
                           ],
