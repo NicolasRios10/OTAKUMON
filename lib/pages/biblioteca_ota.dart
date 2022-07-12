@@ -34,9 +34,11 @@ class _biblioteca extends State<biblioteca> {
       appBar: upBar(),
       body: Container(
         child: ListView(
-          children: <widget>[
+          children: <Widget>[
             ConfigUserProfile(config),
-            ConfigGen(config),
+            ConfigGuard(config),
+            ConfigCompras(config),
+            ConfigConfig(config),
           ],
         ),
       ),
@@ -47,18 +49,95 @@ class _biblioteca extends State<biblioteca> {
 
 
 class ConfigUserProfile extends StatefulWidget {
+  const ConfigUserProfile(Config config, {Key? key}) : super(key: key);
+  
   @override
-  createState() => _ConfigUserProfile();
+  State<ConfigUserProfile> createState() => _ConfigUserProfile(configPrin);
 }
+
 class _ConfigUserProfile extends State<ConfigUserProfile>{
 
-final Config config;
+  final Config config;
 
-condi
+  _ConfigUserProfile(this.config);
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      onPressed: (){print("a");},
+      child: Text('top'),
+    );
   }
 }
 
+
+
+class ConfigGuard extends StatefulWidget {
+  const ConfigGuard(Config config, {Key? key}) : super(key: key);
+  
+  @override
+  _ConfigGuard createState() => _ConfigGuard(configPrin);
+}
+
+class _ConfigGuard extends State<ConfigGuard>{
+
+  final Config config;
+
+  _ConfigGuard(this.config);
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Text('guardado'),
+    );
+  }
+}
+
+
+
+class ConfigCompras extends StatefulWidget {
+  const ConfigCompras(Config config, {Key? key}) : super(key: key);
+  
+  @override
+  _ConfigCompras createState() => _ConfigCompras(configPrin);
+}
+
+class _ConfigCompras extends State<ConfigCompras>{
+
+  final Config config;
+
+  _ConfigCompras(this.config);
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Text('Compras'),
+    );
+  }
+}
+
+
+
+class ConfigConfig extends StatefulWidget {
+  const ConfigConfig(Config config, {Key? key}) : super(key: key);
+  
+  @override
+  _ConfigConfig createState() => _ConfigConfig(configPrin);
+}
+
+class _ConfigConfig extends State<ConfigConfig>{
+
+  final Config config;
+
+  _ConfigConfig(this.config);
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Text('Configuracion'),
+    );
+  }
+}
