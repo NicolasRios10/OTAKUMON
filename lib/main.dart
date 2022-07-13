@@ -1,4 +1,4 @@
-import 'package:OTAKUMON/pages/biblioteca_ota.dart';
+//import 'package:OTAKUMON/pages/biblioteca_ota.dart';
 import 'package:OTAKUMON/pages/coment_ota.dart';
 import 'package:OTAKUMON/pages/imagenes_ota.dart';
 import 'package:OTAKUMON/pages/inicio2_ota.dart';
@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
             'inicio_ota': (_) => RouteOne(),
             'agregar_ota': (_) => SubirContenidoScreen(),
             'busqueda_ota': (_) => busqueda_pag(),
-            'biblioteca_ota': (_) => biblioteca(),
+//            'biblioteca_ota': (_) => biblioteca(),
             'imagenes_ota': (_) => SplashScreen(),
             // CAMBIO
             'comment_ota': (_) => ComentScren(),
