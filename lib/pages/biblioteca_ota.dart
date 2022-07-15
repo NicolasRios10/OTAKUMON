@@ -5,20 +5,15 @@ import '../Herramientas/downBar_ota.dart';
 import '../Other/config.dart';
 
 
-class biblioteca extends StatefulWidget {
-  @override
-  createState() => _biblioteca();
-}
-
-class _biblioteca extends State<biblioteca> {
+class biblioteca extends StatelessWidget  {
   // --- RUTAS ---
   // PARA RUTAS (COPIAR Y PEGAR ANTES DE "@override" DESDE AQUI ...
   // en _selectedIndex coloca un numero entero (del 0 al 3) para seleccionar el icono
   int _selectedIndex = 3;
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+
+    _selectedIndex = index;
+    
   }
   // ... HASTA AQUI)
 // --- RUTAS ---
@@ -91,35 +86,46 @@ class _ConfigThree extends State<ConfigThree>{
   final Config config;
   _ConfigThree(this.config);
 
-
-  
-
-
   @override
   Widget build(BuildContext context) {
     return Container(
         child: GridView.count(
           crossAxisCount: 3,
           children: <Widget>[
-              ThreeItem(context, Icons.system_update_tv_rounded, 'guardar', 'carrito_ota'),
+            Card(
+              child: Center(
+                child: Column(
+                  children: [
+                    ListTile(
+                      onTap: () {
+                      Navigator.pushNamed(context, 'carrito_ota');
+                    },
+                    leading: Icon(Icons.save),
+                    title: Text('guardar'),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+              //_ThreeItem(context, Icons.system_update_tv_rounded, 'guardar', 'carrito_ota'),
             ],
           ),
     );
   }
-
-Widget ThreeItem(BuildContext context, IconData icon, String nombre, String ruta) {
-    return Card(
-      child: Center(
-        child: ListTile(
-              onTap: () {
-                Navigator.pushNamed(context, ruta);
-              },
-              leading: Icon(icon),
-              title: Text(nombre),
-            ),
-      ),
-    );
-  }
+/*
+  Widget _ThreeItem(BuildContext context, IconData icon, String nombre, String ruta) {
+      return Card(
+        child: Center(
+          child: ListTile(
+                onTap: () {
+                  Navigator.pushNamed(context, ruta);
+                },
+                leading: Icon(icon),
+                title: Text(nombre),
+              ),
+        ),
+      );
+    }*/
 }
 
 
