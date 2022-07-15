@@ -39,6 +39,7 @@ class _ComentScren extends State<ComentScren> {
       appBar: upBar(),
       // PUBLICACIONES TRAIDAS DESDE LA BASE DE DATOS
       body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
         child: Column(
           children: [
             Container(
@@ -243,13 +244,13 @@ class _ComentScren extends State<ComentScren> {
             // LISTA DE COMENTARIOS
             Container(
               // ??? solo añade una altura para que funcione el API REST dentro de un "Column"...
-              height: 450,
+              height: MediaQuery.of(context).size.height / 0.5,
               // ???
               child: ListView.builder(
                   itemCount: listaPublicaciones.length,
                   // ???
                   reverse: true,
-                  scrollDirection: Axis.vertical,
+                  // scrollDirection: Axis.vertical,
                   padding: const EdgeInsets.all(20),
                   // ???
                   itemBuilder: (context, index) {

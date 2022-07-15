@@ -11,12 +11,14 @@ import 'package:OTAKUMON/Herramientas/upBar_ota.dart';
 import 'package:provider/provider.dart';
 import '../Herramientas/downBar_ota.dart';
 
-class SubirContenidoScreen extends StatefulWidget {
+class ModificarContenidoScreen extends StatefulWidget {
+  const ModificarContenidoScreen({Key? key}) : super(key: key);
+
   @override
-  createState() => _SubirContenidoScreen();
+  State<ModificarContenidoScreen> createState() => _ModificarContenidoScreen();
 }
 
-class _SubirContenidoScreen extends State<SubirContenidoScreen> {
+class _ModificarContenidoScreen extends State<ModificarContenidoScreen> {
   int _selectedIndex = 1;
   void _onItemTapped(int index) {
     setState(() {
@@ -25,16 +27,36 @@ class _SubirContenidoScreen extends State<SubirContenidoScreen> {
   }
 
   final _formKey = GlobalKey<FormState>();
+  final txtInicioproductoId = TextEditingController();
+  final txtTitulo = TextEditingController();
+  final txtDescripcion = TextEditingController();
+  final txtImagenURL = TextEditingController();
+  final txtPrecio = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     final inicioproductoProvider = Provider.of<InicioproductoProvider>(context);
-    final List<Inicioproducto> listaInicioproducto =
-        inicioproductoProvider.listaInicioproductos;
-    final txtTitulo = TextEditingController();
-    final txtDescripcion = TextEditingController();
-    final txtImagenURL = TextEditingController();
-    final txtPrecio = TextEditingController();
+    // final List<Inicioproducto> listaInicioproducto = inicioproductoProvider.listaInicioproductos;
+    // RECIBIR EL PRODUCTO POR ARGUMENTOS
+    final Inicioproducto? inicioproducto =
+        ModalRoute.of(context)!.settings.arguments as Inicioproducto?;
+    print(inicioproducto!.titulo);
+
+    if (inicioproducto != null) {
+      // EDITAR
+      txtInicioproductoId.text = inicioproducto.inicioproductoId.toString();
+      txtTitulo.text = inicioproducto.titulo.toString();
+      txtDescripcion.text = inicioproducto.descripcion.toString();
+      txtImagenURL.text = inicioproducto.imagen;
+      txtPrecio.text = inicioproducto.precio.toString();
+    } else {
+      // NUEVO
+      txtInicioproductoId.text = '0';
+      txtTitulo.text = '';
+      txtDescripcion.text = '';
+      txtImagenURL.text = '';
+      txtPrecio.text = '';
+    }
 
     return Scaffold(
       appBar: upBar(),
@@ -46,7 +68,7 @@ class _SubirContenidoScreen extends State<SubirContenidoScreen> {
             Container(
                 padding: const EdgeInsets.fromLTRB(0, 25, 0, 0),
                 child: Center(
-                    child: Text('Agregar un producto...',
+                    child: Text('Modificar el producto seleccionado...',
                         style: TextStyle(
                             color: Color.fromARGB(255, 25, 77, 145),
                             fontWeight: FontWeight.bold,
@@ -302,7 +324,7 @@ class _SubirContenidoScreen extends State<SubirContenidoScreen> {
                                     )
                                   ]),
                               child: ElevatedButton(
-                                  child: const Text('Publicar'),
+                                  child: const Text('Aplicar nuevos cambios'),
                                   style: TextButton.styleFrom(
                                       primary:
                                           Color.fromARGB(255, 255, 255, 255),
@@ -316,7 +338,8 @@ class _SubirContenidoScreen extends State<SubirContenidoScreen> {
                                                   Text('Espere un momento')));
                                       var inicioproducto = Inicioproducto(
                                         id: '',
-                                        inicioproductoId: 0,
+                                        inicioproductoId:
+                                            int.parse(txtInicioproductoId.text),
                                         titulo: txtTitulo.text,
                                         descripcion: txtDescripcion.text,
                                         precio: int.parse(txtPrecio.text),
@@ -325,7 +348,7 @@ class _SubirContenidoScreen extends State<SubirContenidoScreen> {
                                       inicioproductoProvider
                                           .saveInicioproducto(inicioproducto);
                                       Navigator.pushReplacementNamed(
-                                          context, 'inicio_ota');
+                                          context, 'inicio2_ota');
                                     }
                                   }),
                             ),
@@ -337,10 +360,6 @@ class _SubirContenidoScreen extends State<SubirContenidoScreen> {
             ),
           ],
         ),
-      ),
-
-      bottomNavigationBar: downBar(
-        inx: _selectedIndex,
       ),
     );
   }

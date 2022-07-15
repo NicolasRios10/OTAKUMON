@@ -5,7 +5,7 @@ import '../models/producto.dart';
 import 'package:http/http.dart' as http;
 
 class ProductoProvider extends ChangeNotifier {
-  String _baseUrl = '192.168.0.19:9000';
+  String _baseUrl = '192.168.3.63:9000';
 // String _baseUrl = '192.168.3.63:9000';
 
   List<Producto> listaProductos = [];

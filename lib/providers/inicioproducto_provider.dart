@@ -6,7 +6,7 @@ import '../models/inicioproducto.dart';
 import 'package:OTAKUMON/models/inicioproducto_response.dart';
 
 class InicioproductoProvider extends ChangeNotifier {
-  String _baseUrl = '192.168.0.19:9000';
+  String _baseUrl = '192.168.3.63:9000';
 
   List<Inicioproducto> listaInicioproductos = [];
 

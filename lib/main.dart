@@ -2,6 +2,7 @@
 import 'package:OTAKUMON/pages/coment_ota.dart';
 import 'package:OTAKUMON/pages/imagenes_ota.dart';
 import 'package:OTAKUMON/pages/inicio2_ota.dart';
+import 'package:OTAKUMON/pages/modificarproducto_ota.dart';
 import 'package:flutter/material.dart';
 import 'package:OTAKUMON/pages/agregar_ota.dart';
 import 'package:OTAKUMON/pages/busqueda_ota.dart';
@@ -53,6 +54,7 @@ class MyApp extends StatelessWidget {
             'ruta_login_2': (_) => LoginPy(),
             'inicio_ota': (_) => RouteOne(),
             'agregar_ota': (_) => SubirContenidoScreen(),
+            'modificarproducto_ota': (_) => ModificarContenidoScreen(),
             'busqueda_ota': (_) => busqueda_pag(),
 //            'biblioteca_ota': (_) => biblioteca(),
             'imagenes_ota': (_) => SplashScreen(),
