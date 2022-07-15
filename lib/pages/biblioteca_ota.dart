@@ -63,9 +63,13 @@ class _ConfigUserProfile extends State<ConfigUserProfile>{
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      onPressed: (){print("a");},
-      child: Text('top'),
+    return ListTile(
+      onTap: (){
+        Navigator.pushNamed(context, 'carrito_ota');
+      },
+      leading: Icon(Icons.supervised_user_circle),
+      title: Text('perfil'),
+      trailing: Icon(Icons.camera_front_outlined),
     );
   }
 }
