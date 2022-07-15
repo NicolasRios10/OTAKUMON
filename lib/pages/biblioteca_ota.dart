@@ -78,6 +78,7 @@ class _ConfigUserProfile extends State<ConfigUserProfile>{
 
 
 // LA BARRA DE TRES CONFIGURACIONES LATERALES
+
 class ConfigThree extends StatefulWidget {
   const ConfigThree(Config config, {Key? key}) : super(key: key);
   
@@ -88,26 +89,34 @@ class ConfigThree extends StatefulWidget {
 class _ConfigThree extends State<ConfigThree>{
 
   final Config config;
-
   _ConfigThree(this.config);
+
+
+  
 
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Center(
         child: GridView.count(
           crossAxisCount: 3,
-          children: <widget>[
-            Card(
-              child: Column(
-                children: <widget>[
-                  
-                ],
-              ),
-            )
-          ],
+          children: <Widget>[
+              ThreeItem(context, Icons.system_update_tv_rounded, 'guardar', 'carrito_ota'),
+            ],
           ),
+    );
+  }
+
+Widget ThreeItem(BuildContext context, IconData icon, String nombre, String ruta) {
+    return Card(
+      child: Center(
+        child: ListTile(
+              onTap: () {
+                Navigator.pushNamed(context, ruta);
+              },
+              leading: Icon(icon),
+              title: Text(nombre),
+            ),
       ),
     );
   }
