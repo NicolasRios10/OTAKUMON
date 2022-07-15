@@ -20,12 +20,11 @@ class _biblioteca extends State<biblioteca> {
       _selectedIndex = index;
     });
   }
-
-
-
-  final Config config = configPrin;
   // ... HASTA AQUI)
 // --- RUTAS ---
+
+  final Config config = configPrin;
+
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +35,7 @@ class _biblioteca extends State<biblioteca> {
         child: ListView(
           children: <Widget>[
             ConfigUserProfile(config),
-            ConfigGuard(config),
+            ConfigThree(config),
             ConfigCompras(config),
             ConfigConfig(config),
           ],
@@ -47,7 +46,7 @@ class _biblioteca extends State<biblioteca> {
   }
 }
 
-
+// EL PERFIL
 class ConfigUserProfile extends StatefulWidget {
   const ConfigUserProfile(Config config, {Key? key}) : super(key: key);
   
@@ -76,24 +75,40 @@ class _ConfigUserProfile extends State<ConfigUserProfile>{
 
 
 
-class ConfigGuard extends StatefulWidget {
-  const ConfigGuard(Config config, {Key? key}) : super(key: key);
+
+
+// LA BARRA DE TRES CONFIGURACIONES LATERALES
+class ConfigThree extends StatefulWidget {
+  const ConfigThree(Config config, {Key? key}) : super(key: key);
   
   @override
-  _ConfigGuard createState() => _ConfigGuard(configPrin);
+  _ConfigThree createState() => _ConfigThree(configPrin);
 }
 
-class _ConfigGuard extends State<ConfigGuard>{
+class _ConfigThree extends State<ConfigThree>{
 
   final Config config;
 
-  _ConfigGuard(this.config);
+  _ConfigThree(this.config);
 
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text('guardado'),
+      child: Center(
+        child: GridView.count(
+          crossAxisCount: 3,
+          children: <widget>[
+            Card(
+              child: Column(
+                children: <widget>[
+                  
+                ],
+              ),
+            )
+          ],
+          ),
+      ),
     );
   }
 }
