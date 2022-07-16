@@ -4,6 +4,7 @@ import 'package:OTAKUMON/pages/imagenes_ota.dart';
 import 'package:OTAKUMON/pages/inicio2_ota.dart';
 import 'package:OTAKUMON/pages/modificarproducto_ota.dart';
 import 'package:OTAKUMON/pages/producto_screen.dart';
+import 'package:OTAKUMON/pages/productounitario_ota.dart';
 import 'package:OTAKUMON/pages/reg_producto_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:OTAKUMON/pages/agregar_ota.dart';
@@ -65,6 +66,8 @@ class MyApp extends StatelessWidget {
             'inicio2_ota': (_) => InicioProductoScreen(),
             'ruta_producto': (_) => ProductoScreen(),
             'ruta_producto_form': (_) => ProductoFormScreen(),
+            'productounitario_ota': (_) => ProductoUnitarioScreen()
+            
           },
         ));
   }
