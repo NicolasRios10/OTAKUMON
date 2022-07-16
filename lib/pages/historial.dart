@@ -9,9 +9,9 @@ import 'package:OTAKUMON/Herramientas/downBar_ota.dart';
 import 'package:OTAKUMON/Herramientas/upBar_ota.dart';
 
 
-void main() => runApp(MyApp());
+void main() => runApp(Histo_ota());
 
-class MyApp extends StatelessWidget {
+class Histo_ota extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final title = 'Basic List';

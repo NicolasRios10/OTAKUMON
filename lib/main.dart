@@ -3,6 +3,7 @@ import 'package:OTAKUMON/pages/card.dart';
 import 'package:OTAKUMON/pages/coment_ota.dart';
 import 'package:OTAKUMON/pages/configuracion.dart';
 import 'package:OTAKUMON/pages/guardado.dart';
+import 'package:OTAKUMON/pages/historial.dart';
 import 'package:OTAKUMON/pages/imagenes_ota.dart';
 import 'package:OTAKUMON/pages/inicio2_ota.dart';
 import 'package:OTAKUMON/pages/modificarproducto_ota.dart';
@@ -73,6 +74,7 @@ class MyApp extends StatelessWidget {
             'guardar_ota': (_) => CarouselDemo(),
             'Config_ota': (_) => BibliConfig(),
             'Credic_Card': (_) => PagoScreen(),
+            'historial': (_) => Histo_ota(),
             
           },
         ));
