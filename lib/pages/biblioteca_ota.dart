@@ -24,7 +24,7 @@ List<TreeCuadrosConfig> TCConfigs = [
   TreeCuadrosConfig(
     icon: Icons.history,
     name: 'Historial',
-    rutac: 'agregar_ota',//este es de historial
+    rutac: 'historial',//este es de historial
     ),
   TreeCuadrosConfig(
     icon: Icons.tune_rounded,
