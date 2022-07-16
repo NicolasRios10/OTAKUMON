@@ -1,8 +1,9 @@
 import 'dart:convert';
-import 'package:OTAKUMON/models/producto_models/producto_rport.dart';
+//import 'package:OTAKUMON/models/producto_models/producto_rport.dart';
+import 'package:OTAKUMON/models/producto_report.dart';
 class ProductoReportResponse {
     ProductoReportResponse({
-        this.productoReport,
+      required  this.productoReport,
     });
 
     List<ProductoReport> productoReport;

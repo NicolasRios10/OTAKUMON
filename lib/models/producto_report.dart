@@ -2,8 +2,8 @@ import 'dart:convert';
 
 class ProductoReport {
     ProductoReport({
-        this.id,
-        this.count,
+      required  this.id,
+      required  this.count,
     });
 
     String id;
