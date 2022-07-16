@@ -4,6 +4,19 @@ import 'package:OTAKUMON/Herramientas/upBar_ota.dart';
 import '../Herramientas/downBar_ota.dart';
 import '../Other/config.dart';
 
+class Ruta{
+  final String ruta,
+  Ruta({
+    required this.ruta,
+  });
+}
+List<Ruta> RUTAS = [
+  Ruta(
+    ruta: 'carrito_ota',
+  ),
+];
+
+
 class TreeCuadrosConfig{
   final IconData icon;
   final String name,rutac;
@@ -47,7 +60,6 @@ class biblioteca extends StatelessWidget  {
 // --- RUTAS ---
 
   final Config config = configPrin;
-  final List<TreeCuadrosConfig> treeCuadrosConfig = TCConfigs;
 
   @override
   Widget build(BuildContext context) {
@@ -68,9 +80,7 @@ class biblioteca extends StatelessWidget  {
                   press: () => Navigator.pushNamed(context, ),
                 ),
             )),
-            ConfigThree(config),
-            ConfigCompras(config),
-            ConfigConfig(config),
+
           ],
         ),
       ),
@@ -89,7 +99,7 @@ class WidTreCua extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: press(treeCuadrosConfig),
+      onTap: press,
       child: Container(
         height: 180,
         width: 180,
