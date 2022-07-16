@@ -53,6 +53,7 @@ class _ProductoFormScreen extends State<ProductoFormScreen> {
     return Scaffold(
       backgroundColor: Colors.brown[200],
       appBar: AppBar(
+        leading: IconButton(icon: Icon(Icons.keyboard_arrow_left_rounded), onPressed: (){Navigator.pushNamed(context, 'Config_ota');}),
         title: Text('REGISTRO DE ACCESORIOS'),
         backgroundColor: Colors.brown[800],
         elevation: 0,
@@ -66,7 +67,7 @@ class _ProductoFormScreen extends State<ProductoFormScreen> {
               Image(
                 width: 120,
                 height: 120,
-                image: AssetImage('assets/images/logo3.png'),
+                image: AssetImage("../assets/loi.png"),
                 fit: BoxFit.contain,
               ),
               SizedBox(

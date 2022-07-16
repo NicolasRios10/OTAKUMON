@@ -49,6 +49,7 @@ class CarouselDemoHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(icon: Icon(Icons.keyboard_arrow_left_rounded), onPressed: (){Navigator.pushNamed(context, 'biblioteca_ota');}),
         title: Text('OTAKUMON'),
         actions: [
           IconButton(

@@ -1,9 +1,13 @@
-//import 'package:OTAKUMON/pages/biblioteca_ota.dart';
+import 'package:OTAKUMON/pages/biblioteca_ota.dart';
+import 'package:OTAKUMON/pages/card.dart';
 import 'package:OTAKUMON/pages/coment_ota.dart';
+import 'package:OTAKUMON/pages/configuracion.dart';
+import 'package:OTAKUMON/pages/guardado.dart';
 import 'package:OTAKUMON/pages/imagenes_ota.dart';
 import 'package:OTAKUMON/pages/inicio2_ota.dart';
 import 'package:OTAKUMON/pages/modificarproducto_ota.dart';
 import 'package:OTAKUMON/pages/producto_screen.dart';
+import 'package:OTAKUMON/pages/productounitario_ota.dart';
 import 'package:OTAKUMON/pages/reg_producto_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:OTAKUMON/pages/agregar_ota.dart';
@@ -58,13 +62,18 @@ class MyApp extends StatelessWidget {
             'agregar_ota': (_) => SubirContenidoScreen(),
             'modificarproducto_ota': (_) => ModificarContenidoScreen(),
             'busqueda_ota': (_) => busqueda_pag(),
-//            'biblioteca_ota': (_) => biblioteca(),
+            'biblioteca_ota': (_) => biblioteca(),
             'imagenes_ota': (_) => SplashScreen(),
             // CAMBIO
             'comment_ota': (_) => ComentScren(),
             'inicio2_ota': (_) => InicioProductoScreen(),
             'ruta_producto': (_) => ProductoScreen(),
             'ruta_producto_form': (_) => ProductoFormScreen(),
+            'productounitario_ota': (_) => ProductoUnitarioScreen(),
+            'guardar_ota': (_) => CarouselDemo(),
+            'Config_ota': (_) => BibliConfig(),
+            'Credic_Card': (_) => PagoScreen(),
+            
           },
         ));
   }

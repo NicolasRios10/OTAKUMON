@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:provider/provider.dart';
+
+import '../models/inicioproducto.dart';
+import '../providers/inicioproducto_provider.dart';
+import '../search/inicioproducto_search_delegate.dart';
 
 class downBar extends StatelessWidget {
   final int inx;
@@ -11,6 +16,10 @@ class downBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final inicioproductoProvider = Provider.of<InicioproductoProvider>(context);
+    final List<Inicioproducto> listaInicioproducto =
+        inicioproductoProvider.listaInicioproductos;
+
     return BottomNavigationBar(
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Inicio'),
@@ -46,7 +55,10 @@ class downBar extends StatelessWidget {
             Navigator.pushNamed(context, "agregar_ota");
             break;
           case 2:
-            Navigator.pushNamed(context, "busqueda_ota");
+            showSearch(
+                context: context,
+                delegate: InicioProductoSearchDelegate(listaInicioproducto));
+            ;
             break;
           // FALTA PANTALLA
           case 3:
