@@ -75,9 +75,7 @@ class _RouteOne extends State<RouteOne> {
     PhotoItem(
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTivsd7K3EyT2-G69UB4I_4Zh6OGqU42TWFHw&usqp=CAU",
         "apuestas"),
-    PhotoItem(
-        "https://m.media-amazon.com/images/I/419128OKuGL.jpg",
-       "meliodas"),
+
   ];
 
 

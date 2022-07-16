@@ -30,7 +30,7 @@ class _busqueda_pag extends State<busqueda_pag> {
     return Scaffold(
       appBar: upBar(),
       body: Center(
-        child: Text('esta es la segunda pantalla de prueba'),
+        child: Text('poner boton de busqueda'),
       ),
       // --- RUTAS ---
       // AQUI ESTA LA BARRA DE ICONOS INFERIORES (copiar y pegar desde aqui...

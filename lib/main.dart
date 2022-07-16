@@ -3,6 +3,8 @@ import 'package:OTAKUMON/pages/coment_ota.dart';
 import 'package:OTAKUMON/pages/imagenes_ota.dart';
 import 'package:OTAKUMON/pages/inicio2_ota.dart';
 import 'package:OTAKUMON/pages/modificarproducto_ota.dart';
+import 'package:OTAKUMON/pages/producto_screen.dart';
+import 'package:OTAKUMON/pages/reg_producto_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:OTAKUMON/pages/agregar_ota.dart';
 import 'package:OTAKUMON/pages/busqueda_ota.dart';
@@ -13,7 +15,7 @@ import 'package:OTAKUMON/pages/inicio2_ota.dart';
 import 'package:OTAKUMON/providers/publicacion_provider.dart';
 import 'package:OTAKUMON/providers/inicioproducto_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:OTAKUMON/guardado.dart';
+//import 'package:OTAKUMON/guardado.dart';
 import 'pages/carrito_ota.dart';
 import 'providers/producto_provider.dart';
 
@@ -61,6 +63,8 @@ class MyApp extends StatelessWidget {
             // CAMBIO
             'comment_ota': (_) => ComentScren(),
             'inicio2_ota': (_) => InicioProductoScreen(),
+            'ruta_producto': (_) => ProductoScreen(),
+            'ruta_producto_form': (_) => ProductoFormScreen(),
           },
         ));
   }
