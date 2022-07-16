@@ -9,71 +9,104 @@ import 'package:OTAKUMON/Herramientas/downBar_ota.dart';
 import 'package:OTAKUMON/Herramientas/upBar_ota.dart';
 
 
-class PhotoItem {
-  final String image;
-  final String name;
-  PhotoItem(this.image, this.name);
-}
+void main() => runApp(MyApp());
 
-class RouteOne extends StatefulWidget {
+class MyApp extends StatelessWidget {
   @override
-  createState() => _RouteOne();
+  Widget build(BuildContext context) {
+    final title = 'Basic List';
+
+    return MaterialApp(
+      title: title,
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text(title),
+        ),
+        body: ListView(
+          children: <Widget>[
+            ListTile(
+              leading: Icon(Icons.perm_media),
+              title: Text('Pintura en lienzo de Ojos de personaje de Anime japonés'),
+            ),
+            ListTile(
+              leading: Icon(Icons.perm_media),
+              title: Text('Retro estilo japonés Popular de Anime Jujutsu Kaisen'),
+            ),
+            ListTile(
+              leading: Icon(Icons.search),
+              title: Text('Busqueda de Anime Jujutsu Kaisen '),
+            ),
+             ListTile(
+              leading: Icon(Icons.date_range),
+              title: Text('Evento de descuento'),
+            ),
+             ListTile(
+              leading: Icon(Icons.calendar_today),
+              title: Text('Agendar evento'),
+            ),
+             ListTile(
+              leading: Icon(Icons.date_range),
+              title: Text('Evento de cyber wow'),
+            ),
+             ListTile(
+              leading: Icon(Icons.bookmark),
+              title: Text('Añadido de guardado de imagen de Shingeki no Kyojin (Attack on Titan)'),
+            ),
+             ListTile(
+              leading: Icon(Icons.image),
+              title: Text('Imagenes deShingeki no Kyojin (Attack on Titan)'),
+            ),
+             ListTile(
+              leading: Icon(Icons.search),
+              title: Text('Busqueda de Shingeki no Kyojin (Attack on Titan)'),
+            ),
+             ListTile(
+              leading: Icon(Icons.movie_filter),
+              title: Text('Kimetsu no Yaiba (Demon Slayer) pelicula'),
+            ),
+             ListTile(
+              leading: Icon(Icons.delete),
+              title: Text('Eliminado de imagen de Kimetsu no Yaiba (Demon Slayer)'),
+            ),
+             ListTile(
+              leading: Icon(Icons.image),
+              title: Text('Imagenes de Kimetsu no Yaiba (Demon Slayer)'),
+            ),
+             ListTile(
+              leading: Icon(Icons.search),
+              title: Text('Busqueda de Kimetsu no Yaiba (Demon Slayer)'),
+            ),
+             ListTile(
+              leading: Icon(Icons.bookmark),
+              title: Text('Añadido a guardao imagende One Piece'),
+            ),
+             ListTile(
+              leading: Icon(Icons.image),
+              title: Text('imagenes de One Piece'),
+            ),
+             ListTile(
+              leading: Icon(Icons.search),
+              title: Text('Busqueda de One Piece'),
+            ),
+             ListTile(
+              leading: Icon(Icons.image),
+              title: Text('imagen de Jujutsu Kaisen '),
+            ),
+             ListTile(
+              leading: Icon(Icons.bookmark),
+              title: Text('Añadido a guardado Dragon Ball'),
+            ),
+             ListTile(
+              leading: Icon(Icons.image),
+              title: Text('imagen Dragon Ball'),
+            ),
+             ListTile(
+              leading: Icon(Icons.date_range),
+              title: Text('Lanzamiento de Dragon Ball Super: Super Hero'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }
-
-
-class _RouteOne extends State<RouteOne> {
-  final _formKey = GlobalKey<FormState>();
-
-
-  int _selectedIndex = 0;
-    void _onItemTapped(int index) {
-      setState(() {
-        _selectedIndex = index;
-      });
-    }
-
-  final List<PhotoItem> _items = [
-    PhotoItem(
-        "https://m.media-amazon.com/images/I/81sqMtBYOHS._AC_SL1500_.jpg",
-        "Jujutsu katisen"),
-    PhotoItem(
-        "https://pbs.twimg.com/media/FMdBsrGXsAQGxQ0?format=jpg&name=4096x4096",
-        "komisan"),
-    PhotoItem(
-        "https://static.wixstatic.com/media/badb34_1eeeb026dcaf4c9f8f85ea9eda88274f~mv2.png/v1/fill/w_1000,h_1422,al_c,usm_0.66_1.00_0.01/badb34_1eeeb026dcaf4c9f8f85ea9eda88274f~mv2.png",
-        "anime"),
-    PhotoItem(
-        "https://images-na.ssl-images-amazon.com/images/I/71-WBN3FCBL._AC_SL1280_.jpg",
-        "Anime"),
-    PhotoItem(
-        "https://assets.promediateknologi.com/crop/0x0:0x0/x/photo/2021/11/23/3946289368.jpeg",
-        "anime"),
-    PhotoItem(
-        "https://images-na.ssl-images-amazon.com/images/I/81MLf-pgXrL.jpg",
-        "anime"),
-    PhotoItem(
-        "https://i.ebayimg.com/images/g/nhMAAMXQya1Q8h6k/s-l500.jpg",
-        "naruto"),
-    PhotoItem(
-        "https://img.assinaja.com/assets/tZ/050/img/270004_520x520.jpg",
-        "pelon"),
-    PhotoItem(
-        "https://images-na.ssl-images-amazon.com/images/I/81TLeOxDprL.jpg",
-        "anime"),
-    PhotoItem(
-        "https://i.ebayimg.com/images/g/tw8AAOSwWi1f~uUU/s-l500.jpg",
-        "anime"),
-    PhotoItem(
-        "https://m.media-amazon.com/images/I/81D0Y6+qV9L._SL1500_.jpg",
-        "goku"),
-    PhotoItem(
-        "https://m.media-amazon.com/images/I/91oRmZ53OBL._AC_SY679_.jpg",
-        "pulpo"),
-    PhotoItem(
-        "https://m.media-amazon.com/images/I/71uHZO5ChkL._AC_SY679_.jpg",
-        "titanes"),
-    PhotoItem(
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTivsd7K3EyT2-G69UB4I_4Zh6OGqU42TWFHw&usqp=CAU",
-        "apuestas"),
-
-  ];
