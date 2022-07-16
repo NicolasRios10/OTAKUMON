@@ -4,18 +4,6 @@ import 'package:OTAKUMON/Herramientas/upBar_ota.dart';
 import '../Herramientas/downBar_ota.dart';
 import '../Other/config.dart';
 
-class Ruta{
-  final String ruta,
-  Ruta({
-    required this.ruta,
-  });
-}
-List<Ruta> RUTAS = [
-  Ruta(
-    ruta: 'carrito_ota',
-  ),
-];
-
 
 class TreeCuadrosConfig{
   final IconData icon;
@@ -36,7 +24,7 @@ List<TreeCuadrosConfig> TCConfigs = [
   TreeCuadrosConfig(
     icon: Icons.history,
     name: 'Historial',
-    rutac: 'carrito_ota',
+    rutac: 'agregar_ota',
     ),
   TreeCuadrosConfig(
     icon: Icons.tune_rounded,
@@ -60,6 +48,7 @@ class biblioteca extends StatelessWidget  {
 // --- RUTAS ---
 
   final Config config = configPrin;
+  final List TreeCuadrosConfig = TCConfigs;
 
   @override
   Widget build(BuildContext context) {
@@ -76,8 +65,7 @@ class biblioteca extends StatelessWidget  {
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3),
                 itemBuilder: (context, index) => WidTreCua(
-                  treeCuadrosConfig: TCConfigs[index],
-                  press: () => Navigator.pushNamed(context, ),
+                  treeCuadrosConfig: TCConfigs[index]
                 ),
             )),
 
@@ -91,21 +79,19 @@ class biblioteca extends StatelessWidget  {
 
 class WidTreCua extends StatelessWidget {
   final TreeCuadrosConfig treeCuadrosConfig;
-  final Function press;
   const WidTreCua({
-    Key? key, required this.treeCuadrosConfig, required this.press,
+    Key? key, required this.treeCuadrosConfig,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: press,
+      onTap: () {Navigator.pushNamed(context, treeCuadrosConfig.rutac);},
       child: Container(
         height: 180,
         width: 180,
         decoration: BoxDecoration(
           color: Colors.blue[700],
-    
         ),
         child: Center(
           child: Column(
