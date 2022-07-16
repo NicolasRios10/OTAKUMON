@@ -21,6 +21,8 @@ class BibliConfig extends StatelessWidget{
           Divider(),
           _crearItem(context, Icons.format_align_center_sharp, 'Encuestas', 'ruta_producto_form'),
           Divider(),
+          _crearItem(context, Icons.format_indent_increase, 'Reportes', 'ruta_producto'),
+          Divider(),
         ],
       ),
     );

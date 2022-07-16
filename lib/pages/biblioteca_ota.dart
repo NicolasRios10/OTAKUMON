@@ -24,7 +24,7 @@ List<TreeCuadrosConfig> TCConfigs = [
   TreeCuadrosConfig(
     icon: Icons.history,
     name: 'Historial',
-    rutac: 'agregar_ota',
+    rutac: 'agregar_ota',//este es de historial
     ),
   TreeCuadrosConfig(
     icon: Icons.tune_rounded,
@@ -126,13 +126,21 @@ class _ConfigUserProfile extends State<ConfigUserProfile>{
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      onTap: (){
-        Navigator.pushNamed(context, 'carrito_ota');
-      },
-      leading: Icon(Icons.supervised_user_circle),
-      title: Text('perfil'),
-      trailing: Icon(Icons.camera_front_outlined),
+    return Container(
+      height: 160,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("../assets/norway.jpg")
+        )
+      ),
+      child: ListTile(
+        onTap: (){
+          Navigator.pushNamed(context, 'carrito_ota');
+        },
+        leading: Icon(Icons.supervised_user_circle),
+        title: Text('perfil'),
+        trailing: Icon(Icons.camera_front_outlined),
+      ),
     );
   }
 }
