@@ -31,7 +31,7 @@ class _LoginPy extends State<LoginPy> {
             ),
             //Imagen otakumon
             child: Image.asset(
-              "../assets/otakumon.png",
+              "../assets/loi.png",
               /* ,color: Colors.white */
               height: 190,
             ),
