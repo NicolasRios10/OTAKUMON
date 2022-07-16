@@ -88,10 +88,10 @@ class WidTreCua extends StatelessWidget {
     return GestureDetector(
       onTap: () {Navigator.pushNamed(context, treeCuadrosConfig.rutac);},
       child: Container(
-        height: 180,
+        height: 140,
         width: 180,
         decoration: BoxDecoration(
-          color: Colors.blue[700],
+          color: Color.fromARGB(255, 18, 72, 126),
         ),
         child: Center(
           child: Column(
@@ -127,10 +127,11 @@ class _ConfigUserProfile extends State<ConfigUserProfile>{
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 160,
+      height: 220,
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("../assets/norway.jpg")
+          image: AssetImage("../assets/norway.jpg"),
+          fit: BoxFit.cover,
         )
       ),
       child: ListTile(
