@@ -4,6 +4,34 @@ import 'package:OTAKUMON/Herramientas/upBar_ota.dart';
 import '../Herramientas/downBar_ota.dart';
 import '../Other/config.dart';
 
+class TreeCuadrosConfig{
+  final IconData icon;
+  final String name,rutac;
+  TreeCuadrosConfig({
+    required this.icon,
+    required this.name,
+    required this.rutac,
+  });
+}
+
+List<TreeCuadrosConfig> TCConfigs = [
+  TreeCuadrosConfig(
+    icon: Icons.save,
+    name: 'Guardar', 
+    rutac: 'carrito_ota',
+  ),
+  TreeCuadrosConfig(
+    icon: Icons.history,
+    name: 'Historial',
+    rutac: 'carrito_ota',
+    ),
+  TreeCuadrosConfig(
+    icon: Icons.tune_rounded,
+    name: 'Configuracion',
+    rutac: 'carrito_ota',
+  ),
+];
+
 
 class biblioteca extends StatelessWidget  {
   // --- RUTAS ---
@@ -19,7 +47,7 @@ class biblioteca extends StatelessWidget  {
 // --- RUTAS ---
 
   final Config config = configPrin;
-
+  final List<TreeCuadrosConfig> treeCuadrosConfig = TCConfigs;
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +55,19 @@ class biblioteca extends StatelessWidget  {
     return Scaffold(
       appBar: upBar(),
       body: Container(
-        child: ListView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             ConfigUserProfile(config),
+            Expanded(child: GridView.builder(
+              itemCount: TCConfigs.length,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3),
+                itemBuilder: (context, index) => WidTreCua(
+                  treeCuadrosConfig: TCConfigs[index],
+                  press: () => Navigator.pushNamed(context, ),
+                ),
+            )),
             ConfigThree(config),
             ConfigCompras(config),
             ConfigConfig(config),
@@ -40,6 +78,41 @@ class biblioteca extends StatelessWidget  {
     ); 
   }
 }
+
+class WidTreCua extends StatelessWidget {
+  final TreeCuadrosConfig treeCuadrosConfig;
+  final Function press;
+  const WidTreCua({
+    Key? key, required this.treeCuadrosConfig, required this.press,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: press(treeCuadrosConfig),
+      child: Container(
+        height: 180,
+        width: 180,
+        decoration: BoxDecoration(
+          color: Colors.blue[700],
+    
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(treeCuadrosConfig.icon, size: 120, color: Color.fromARGB(255, 189, 188, 188),),
+              Text(treeCuadrosConfig.name,
+              style: TextStyle(color: Color.fromARGB(255, 189, 188, 188)),)
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
 
 // EL PERFIL
 class ConfigUserProfile extends StatefulWidget {
@@ -88,7 +161,7 @@ class _ConfigThree extends State<ConfigThree>{
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Text('data');/*Container(
         child: GridView.count(
           crossAxisCount: 3,
           children: <Widget>[
@@ -110,7 +183,7 @@ class _ConfigThree extends State<ConfigThree>{
               //_ThreeItem(context, Icons.system_update_tv_rounded, 'guardar', 'carrito_ota'),
             ],
           ),
-    );
+    );*/
   }
 /*
   Widget _ThreeItem(BuildContext context, IconData icon, String nombre, String ruta) {
